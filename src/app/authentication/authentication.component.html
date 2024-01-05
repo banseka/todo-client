@@ -1,0 +1,76 @@
+
+<div class="container">
+
+  <div class="form-container">
+    @if (!isSignedIn) {
+      <div>
+        <h2>Login</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+          <mat-form-field>
+            <input matInput placeholder="Email" formControlName="email">
+            @if(loginForm.get('email')?.touched &&  !loginForm.get('email')?.hasError('required')){
+              <mat-error>
+                Please enter a valid email address.
+              </mat-error>
+            }
+            @if(loginForm.get('email')?.touched &&  loginForm.get('email')?.hasError('required')){
+              <mat-error>
+                email is required
+              </mat-error>
+            }
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="password" placeholder="Password" formControlName="password">
+            @if(signupForm.get('password')?.hasError('required')){
+              <mat-error >
+                Password is required.
+              </mat-error>
+            }
+            @if(signupForm.get('password')?.hasError('minlength')){
+              <mat-error >
+                Password must be at least 6 characters long.
+              </mat-error>
+            }
+          </mat-form-field>
+          <button mat-raised-button color="primary" type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a (click)="switchForm()">Sign Up</a></p>
+      </div>
+    }@else {
+      <div>
+        <h2>Sign Up</h2>
+        <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
+          <mat-form-field>
+            <input matInput placeholder="Email" formControlName="email">
+            @if(loginForm.get('email')?.touched && !loginForm.get('email')?.hasError('required')){
+              <mat-error>
+                Please enter a valid email address.
+              </mat-error>
+            }
+            @if(loginForm.get('email')?.touched &&  loginForm.get('email')?.hasError('required')){
+              <mat-error>
+                email is required !!
+              </mat-error>
+            }
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="password" placeholder="Password" formControlName="password">
+            @if(signupForm.get('password')?.hasError('required')){
+              <mat-error >
+                Password is required.
+              </mat-error>
+            }
+            @if(signupForm.get('password')?.hasError('minlength')){
+              <mat-error >
+                Password must be at least 6 characters long.
+              </mat-error>
+            }
+          </mat-form-field>
+          <button mat-raised-button color="primary" type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a (click)="switchForm()">Login</a></p>
+      </div>
+    }
+  </div>
+</div>
+

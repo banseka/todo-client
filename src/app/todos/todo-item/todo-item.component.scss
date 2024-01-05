@@ -1,0 +1,113 @@
+// .mat-card{
+//   background-color: transparent;
+//   margin-bottom: 0.5rem;
+//   padding: 0 20px;
+//   .mat-card-content{
+//     padding: 0;
+//     font-size: 1rem;
+//     letter-spacing: 1;
+//     color: rgba(0, 0, 0, 0.644);
+//   }
+//   .mat-card-header{
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     padding: 1rem 0;
+//   }
+
+//   .mat-card-footer{
+//     display: flex;
+//     justify-content: space-between;
+//     padding: 1rem 0;
+//   }
+
+// }
+
+
+mat-card {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #6c757d;
+}
+
+.todo-item {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+mat-card-actions{
+  display: flex;
+  justify-content: space-between;
+}
+
+.low-priority {
+  border: 2px solid #28a745; /* Green for low priority */
+}
+
+.medium-priority {
+  border: 2px solid #ffc107; /* Yellow for medium priority */
+}
+
+.high-priority {
+  border: 2px solid #dc3545; /* Red for high priority */
+}
+
+@media screen and (min-width: 600px) {
+  .todo-item {
+    width: calc(50% - 10px); /* 2 items per row with some margin */
+    margin-right: 10px;
+    display: inline-block;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .todo-item {
+    width: calc(33.33% - 10px); /* 3 items per row with some margin */
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .todo-item {
+    width: calc(25% - 10px); /* 4 items per row with some margin */
+  }
+}
+
+
+
+
+// button {
+//   cursor: pointer;
+//   background-color: #007BFF;
+//   color: #fff;
+//   padding: 8px 12px;
+//   border: none;
+//   border-radius: 4px;
+// }
+
+// button:hover {
+//   background-color: #0056b3;
+// }
+
+// .todo-item {
+//   border: 1px solid #ddd;
+//   padding: 10px;
+//   margin-top: 10px;
+// }
+
+// h3 {
+//   color: #333;
+// }
+
+// p {
+//   margin: 5px 0;
+// }
+
+// .completed {
+//   text-decoration: line-through;
+//   color: #6c757d;
+// }
+

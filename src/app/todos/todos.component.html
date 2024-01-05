@@ -1,0 +1,25 @@
+
+<mat-toolbar>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My App</span>
+  <span class="spacer"></span>
+  <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>add</mat-icon>
+  </button> -->
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" matTooltip="Add Todo">
+    <mat-icon>add</mat-icon>
+  </button>
+
+</mat-toolbar>
+<div class="todos">
+  @for (todo of todos; track $index) {
+    <todo-item [todo]="todo"></todo-item>
+  }
+</div>
+  <!-- <todo-item></todo-item>
+  <todo-item></todo-item>
+  <todo-item></todo-item>
+  <todo-item></todo-item> -->
+
