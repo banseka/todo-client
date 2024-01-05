@@ -4,6 +4,13 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {
+  MatDialog,
+  MAT_DIALOG_DATA,
+  MatDialogTitle,
+  MatDialogContent,
+} from '@angular/material/dialog';
+import { AddTodoComponent } from './add-todo/add-todo.component';
 
 
 @Component({
@@ -14,6 +21,10 @@ import {MatGridListModule} from '@angular/material/grid-list';
   styleUrl: './todos.component.scss'
 })
 export class TodosComponent {
+
+  constructor(public dialog: MatDialog){
+
+  }
 
   todos = [
     {
@@ -42,5 +53,14 @@ export class TodosComponent {
     priority:"low"
   },
 ]
+
+
+openDialog() {
+  this.dialog.open(AddTodoComponent, {
+    data: {
+      animal: 'panda',
+    },
+  });
+}
 
 }

@@ -1,1 +1,43 @@
-<p>add-todo works!</p>
+<h1 class="" mat-dialog-title>Add Todo</h1>
+<form [formGroup]="todoForm" class="add-todo-section" mat-dialog-content>
+  <mat-form-field>
+    <input matInput formControlName="title" placeholder="Enter title" />
+
+    @if(todoForm.get('title')?.touched &&  todoForm.get('title')?.hasError('required')){
+      <mat-error>
+        email is required !!
+      </mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput formControlName="description" placeholder="Enter description" >
+    </textarea>
+    @if(todoForm.get('description')?.touched && !todoForm.get('description')?.hasError('maxlength')){
+      <mat-error>
+        description is above the required limit
+      </mat-error>
+    }
+    @if(todoForm.get('description')?.touched && !todoForm.get('description')?.hasError('required')){
+      <mat-error>
+        description is required
+      </mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Priority</mat-label>
+    <mat-select formControlName="priority">
+      <mat-option value="low">Low</mat-option>
+      <mat-option value="medium">Medium</mat-option>
+      <mat-option value="high">High</mat-option>
+    </mat-select>
+    @if(todoForm.get('priority')?.touched && !todoForm.get('priority')?.hasError('required')){
+      <mat-error>
+        priority is required
+      </mat-error>
+    }
+  </mat-form-field>
+
+  <button mat-raised-button type="submit" color="primary" [disabled]="todoForm.invalid" (click)="addTodo()">Add ToDo</button>
+</form>

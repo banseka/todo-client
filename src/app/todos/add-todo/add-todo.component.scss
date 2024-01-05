@@ -1,0 +1,29 @@
+.add-todo-section {
+  display: flex;
+  flex-direction: column;
+  width: 75vw;
+}
+
+mat-form-field,
+button {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* Responsive styles for the Add ToDo section */
+@media screen and (min-width: 600px) {
+  .add-todo-section {
+    width: 50vw;
+  }
+
+}
+
+// @media screen and (min-width: 768px) {
+//   mat-form-field {
+//     width: calc(50% - 10px);
+//   }
+
+//   button {
+//     width: calc(40% - 10px);
+//   }
+// }
