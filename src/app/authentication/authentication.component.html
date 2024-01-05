@@ -1,6 +1,5 @@
 
 <div class="container">
-
   <div class="form-container">
     @if (!isSignedIn) {
       <div>
@@ -8,7 +7,7 @@
         <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
           <mat-form-field>
             <input matInput placeholder="Email" formControlName="email">
-            @if(loginForm.get('email')?.touched &&  !loginForm.get('email')?.hasError('required')){
+            @if(loginForm.get('email')?.touched &&  loginForm.get('email')?.hasError('email')){
               <mat-error>
                 Please enter a valid email address.
               </mat-error>
@@ -32,7 +31,7 @@
               </mat-error>
             }
           </mat-form-field>
-          <button mat-raised-button color="primary" type="submit">Login</button>
+          <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
         </form>
         <p>Don't have an account? <a (click)="switchForm()">Sign Up</a></p>
       </div>
@@ -41,13 +40,27 @@
         <h2>Sign Up</h2>
         <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
           <mat-form-field>
+            <input matInput placeholder="User Name" formControlName="userName">
+            @if( loginForm.get('userName')?.hasError('required')){
+              <mat-error>
+                Name is required.
+              </mat-error>
+            }
+            @if( loginForm.get('userName')?.hasError('minlength')){
+              <mat-error>
+                Name is too short!!
+              </mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field>
             <input matInput placeholder="Email" formControlName="email">
-            @if(loginForm.get('email')?.touched && !loginForm.get('email')?.hasError('required')){
+            @if(loginForm.get('email')?.hasError('email')){
               <mat-error>
                 Please enter a valid email address.
               </mat-error>
             }
-            @if(loginForm.get('email')?.touched &&  loginForm.get('email')?.hasError('required')){
+            @if(  loginForm.get('email')?.hasError('required')){
               <mat-error>
                 email is required !!
               </mat-error>
@@ -66,7 +79,7 @@
               </mat-error>
             }
           </mat-form-field>
-          <button mat-raised-button color="primary" type="submit">Sign Up</button>
+          <button mat-raised-button color="primary" type="submit" [disabled]="signupForm.invalid">Sign Up</button>
         </form>
         <p>Already have an account? <a (click)="switchForm()">Login</a></p>
       </div>

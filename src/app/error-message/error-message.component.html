@@ -1,0 +1,15 @@
+@if ((errors$ | async)) {
+  <ng-container >
+    @if (showMessage) {
+      <div class="messages-container">
+        @for (error of (errors$ | async); track $index) {
+          <div class="message" >
+            {{error}}
+          </div>
+          <mat-icon class="close" (click)="onClose()">close</mat-icon>
+        }
+      </div>
+    }
+  </ng-container>
+}
+

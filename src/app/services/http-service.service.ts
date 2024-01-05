@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, of, throwError } from 'rxjs';
+import { Observable, catchError, of, shareReplay, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,7 @@ export class HttpServiceService {
 
   postData<T>(url: string, params: HttpParams): Observable<T | string>{
     return this.httpClient.post<T>(url, params).pipe(
+      shareReplay(),
       catchError(error => this.handleError(error))
     )
 
@@ -20,6 +21,8 @@ export class HttpServiceService {
   get<T>(url: string, params?: HttpParams): Observable<T| string> {
     const options = { params };
     return this.httpClient.get<T>(`$${url}`, options).pipe(
+      shareReplay(),
+
       catchError(error => this.handleError(error))
     );
   }

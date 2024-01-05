@@ -11,6 +11,7 @@ import {
   MatDialogTitle,
   MatDialogContent,
 } from '@angular/material/dialog';
+import { TodoService } from '../../services/todos/todo.service';
 
 interface DialogData {
   animal: 'panda' | 'unicorn' | 'lion';
@@ -36,15 +37,24 @@ interface DialogData {
 export class AddTodoComponent {
   todoForm!: FormGroup
 
-  constructor(private fb: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: DialogData){
+  constructor(
+    private fb: FormBuilder,
+     @Inject(MAT_DIALOG_DATA)
+      public data: DialogData,
+      private todoServoce: TodoService
+
+     ){
     this.todoForm = this.fb.group({
       title: ["", Validators.required],
       description: ['', Validators.required, Validators.maxLength(150)],
       priority: ['', Validators.required]
     })
   }
+
 addTodo() {
-throw new Error('Method not implemented.');
+  this.todoServoce.addTodo(this.todoForm.value).subscribe(response => {
+    console.log("sSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS",response)
+  })
 }
 
 }
