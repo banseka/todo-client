@@ -1,32 +1,11 @@
-// .mat-card{
-//   background-color: transparent;
-//   margin-bottom: 0.5rem;
-//   padding: 0 20px;
-//   .mat-card-content{
-//     padding: 0;
-//     font-size: 1rem;
-//     letter-spacing: 1;
-//     color: rgba(0, 0, 0, 0.644);
-//   }
-//   .mat-card-header{
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     padding: 1rem 0;
-//   }
-
-//   .mat-card-footer{
-//     display: flex;
-//     justify-content: space-between;
-//     padding: 1rem 0;
-//   }
-
-// }
-
 
 mat-card {
   margin-bottom: 10px;
   width: 100%;
+}
+
+.spacer {
+  flex: 1 1 auto;
 }
 
 .completed {
@@ -44,6 +23,18 @@ mat-card-actions{
   justify-content: space-between;
 }
 
+.mat-card-header {
+  display: flex;
+  padding: 16px 16px 0;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 90vw;
+  .toto-title{
+    margin: 0;
+  }
+
+}
+
 .low-priority {
   border: 2px solid #28a745; /* Green for low priority */
 }
@@ -54,6 +45,10 @@ mat-card-actions{
 
 .high-priority {
   border: 2px solid #dc3545; /* Red for high priority */
+}
+
+.btn-edit{
+  background-color: #28a74680;
 }
 
 @media screen and (min-width: 600px) {

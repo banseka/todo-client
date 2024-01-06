@@ -1,40 +1,25 @@
-<!-- <mat-card class="mat-card">
-  <mat-card-header class="mat-card-header">
-    <mat-card-title>Hello my todo</mat-card-title>
-    <mat-chip-option color="accent" selected>Accent</mat-chip-option>
-  </mat-card-header>
 
-  <mat-card-content class="mat-card-content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</mat-card-content>
-     <mat-card-footer class="mat-card-footer">
-       <button mat-flat-button color="accent">Accent</button>
-      <button mat-raised-button color="primary">Primary</button>
-     </mat-card-footer>
-</mat-card> -->
 
 <mat-card [class.todo-item]="true" [class.completed]="todo.completed" [ngClass]="getPriorityClass(todo.priority)" >
-  <mat-card-header>
-    <mat-card-title>{{ todo.title }}</mat-card-title>
+  <mat-card-header class="">
+    <mat-card-title class="mat-card-header">
+      <h3 class="toto-title">{{ todo.title }} </h3>
+      <button  mat-icon-button matTooltip="Delete" (click)="deleteTodo(todo)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <p>{{ todo.description }}</p>
     <p >Priority: {{ todo.priority }}</p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-icon-button matTooltip="Edit" (click)="editTodo(todo)">
+    <button [disabled]="todo.completed" class="btn-edit" mat-icon-button matTooltip="Edit" (click)="editTodo(todo)">
       <mat-icon>edit</mat-icon>
     </button>
-    <button mat-icon-button matTooltip="Complete" (click)="completeTodo(todo)">
+    <button [disabled]="todo.completed" mat-icon-button matTooltip="Complete" (click)="completeTodo(todo)">
       <mat-icon>check</mat-icon>
     </button>
   </mat-card-actions>
 </mat-card>
-
-<!-- <div  class="todo-item" [class.completed]="todo.completed">
-  <h3>{{ todo.title }}</h3>
-  <p>{{ todo.description }}</p>
-  <p>Priority: {{ todo.priority }}</p>
-  <button mat-button color="primary" (click)="editTodo(todo)">Edit</button>
-  <button mat-button color="warn" (click)="completeTodo(todo)">Complete</button>
-</div> -->
 

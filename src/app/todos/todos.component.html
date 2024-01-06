@@ -14,8 +14,8 @@
 
 </mat-toolbar>
 <div class="todos">
-  @for (todo of todos; track $index) {
-    <todo-item [todo]="todo"></todo-item>
+  @for (todo of todoService.todos$ | async; track $index) {
+    <todo-item [todo]="todo" (completeTodoEvent)="completeTodo($event)" (edithTodoEvent)="edithTodo($event)" (deleteTodoEvent)="deleteTodo($event)"></todo-item>
   }
 </div>
   <!-- <todo-item></todo-item>

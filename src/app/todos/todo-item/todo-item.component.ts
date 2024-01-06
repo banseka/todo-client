@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatButtonModule} from '@angular/material/button';
@@ -20,11 +20,21 @@ export class TodoItemComponent {
 
   @Input() todo: any;
 
+  @Output() completeTodoEvent = new EventEmitter()
+
+  @Output() edithTodoEvent = new EventEmitter()
+  @Output() deleteTodoEvent = new EventEmitter()
+
   completeTodo(arg0: any) {
-  throw new Error('Method not implemented.');
+    this.completeTodoEvent.emit(arg0)
   }
+
   editTodo(arg0: any) {
-  throw new Error('Method not implemented.');
+    this.edithTodoEvent.emit(arg0)
+  }
+
+  deleteTodo(arg0: any) {
+    this.deleteTodoEvent.emit(arg0)
   }
 
   getPriorityClass(priority: string) {

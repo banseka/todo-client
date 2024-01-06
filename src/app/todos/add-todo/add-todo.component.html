@@ -1,4 +1,10 @@
-<h1 class="" mat-dialog-title>Add Todo</h1>
+
+@if (todo !== null) {
+  <h1 class="" mat-dialog-title>Edith Todo</h1>
+}@else {
+  <h1 class="" mat-dialog-title>Add Todo</h1>
+}
+
 <form [formGroup]="todoForm" class="add-todo-section" mat-dialog-content>
   <mat-form-field>
     <input matInput formControlName="title" placeholder="Enter title" />
@@ -39,5 +45,10 @@
     }
   </mat-form-field>
 
-  <button mat-raised-button type="submit" color="primary" [disabled]="todoForm.invalid" (click)="addTodo()">Add ToDo</button>
+@if (todo !== null) {
+  <button mat-raised-button type="submit" color="primary" [disabled]="todoForm.invalid" (click)="updateTodo()">Edith Todo</button>
+}@else {
+  <button mat-raised-button type="submit" color="primary" [disabled]="todoForm.invalid" (click)="addTodo()">Add Todo</button>
+}
+
 </form>
