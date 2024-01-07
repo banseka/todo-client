@@ -2,7 +2,7 @@
 
 <mat-card [class.todo-item]="true" [class.completed]="todo.completed" [ngClass]="getPriorityClass(todo.priority)" >
   <mat-card-header class="">
-    <mat-card-title class="mat-card-header">
+    <mat-card-title class="mat-card-title">
       <h3 class="toto-title">{{ todo.title }} </h3>
       <button  mat-icon-button matTooltip="Delete" (click)="deleteTodo(todo)">
         <mat-icon>delete</mat-icon>

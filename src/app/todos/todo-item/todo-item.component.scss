@@ -23,12 +23,18 @@ mat-card-actions{
   justify-content: space-between;
 }
 
-.mat-card-header {
+.mat-mdc-card-header {
+  display: flex;
+  padding: 16px 16px 0;
+  flex-direction: column;
+}
+
+.mat-card-title {
   display: flex;
   padding: 16px 16px 0;
   justify-content: space-between;
   flex-direction: row;
-  width: 90vw;
+  width: 100%;
   .toto-title{
     margin: 0;
   }
